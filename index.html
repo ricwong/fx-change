@@ -1,0 +1,74 @@
+﻿<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/kendo.all.min.js"></script>
+    <link href="styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="styles/kendo.default.min.css" rel="stylesheet">
+    <link href="styles/kendo.mobile.all.min.css" rel="stylesheet" />
+</head>
+<body>
+	<div data-role="view" id="tab-quote" data-layout="mobile-tabstrip">
+	Quote View
+	</div>
+
+	<div data-role="view" id="tab-fx" data-layout="mobile-tabstrip">
+	Buy/Sell View
+	</div>
+
+	<div data-role="view" id="tab-tutorial" data-layout="mobile-tabstrip">
+		<ul data-role="listview" data-style="inset" data-type="group">
+			<li>
+				Tutorial And FAQ
+				<ul>
+					<li data-icon="toprated">How To Register As FX-Change.com Member?</li>
+					<li data-icon="toprated">How To Deposit Money To FX-Change.com?</li>
+					<li data-icon="toprated">How To Buy / Sell Forex?</li>
+					<li data-icon="toprated">Why We Need Your ID Card Copy?</li>
+					<li data-icon="toprated">Why We Need Your Bank Account No.?</li>
+					<li data-icon="toprated">Is FX-Change.com Licensed Money Service Operator?</li>
+					<li data-icon="toprated">Why Should I Trust FX-Change.com?</li>
+					<li></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	<div data-role="view" id="tab-settings" data-layout="mobile-tabstrip">
+		<ul data-role="listview" data-style="inset" data-type="group">
+			<li>
+				Settings
+				<ul>
+					<li>Auto Login <input id="autologin" type="checkbox" data-role="switch" checked></li>
+					<li>Login Email <input type="email" value="test@abc.com"/></li>
+					<li>Language
+							<select id="language">
+								<option value="eng">English</option>
+								<option value="big5">繁體中文</option>
+								<option value="gb">简体中文</option>
+							</select>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	<div data-role="layout" data-id="mobile-tabstrip">
+		<div data-role="footer">
+			<div data-role="tabstrip">
+				<a href="#tab-quote" data-icon="globe">Quote</a>
+				<a href="#tab-fx" data-icon="cart">Buy/Sell</a>
+				<a href="#tab-tutorial" data-icon="bookmarks">Tutorial</a>
+				<a href="#tab-settings" data-icon="more">Settings</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+			// the content of the document.body is used by default
+		   var app = new kendo.mobile.Application(document.body);
+	</script>
+</body>
+</html>

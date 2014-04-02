@@ -5,7 +5,7 @@ id = "com.fx-change.app"
 versionCode = "10"
 version = "1.1.0">
 
-<preference name="phonegap-version" value="3.1.0" />
+<preference name="phonegap-version" value="3.3.0" />
 
 <name>FX-Change.com</name>
 <description>Buy/Sell FX Online</description>

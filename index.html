@@ -13,9 +13,7 @@
 				Quote
 			</li>
 		</ul>
-		<!-- <div data-role="scroller"> -->
-			<iframe src="http://eoe.instantec.com/fx/fxquote.aspx" width="100%" height="100%" frameborder="0" ></iframe>   
-		<!-- </div> -->
+		<iframe src="http://eoe.instantec.com/fx/fxquote.aspx" width="100%" height="100%" frameborder="0" ></iframe>   
 	</div>
 
 	<div data-role="view" id="tab-bs" data-layout="mobile-tabstrip">
@@ -24,13 +22,6 @@
 				Buy / Sell FX
 			</li>
 		</ul>
-<!--	
-		<ul data-role="listview" data-style="inset" data-type="group">
-			<li>
-				Buy / Sell FX
-			</li>
-		</ul>
--->
 	</div>
 
 	<div data-role="view" id="tab-tutorial" data-layout="mobile-tabstrip">
@@ -84,7 +75,7 @@
 
 	<script>
 			// the content of the document.body is used by default
-		   var app = new kendo.mobile.Application($(document.body), { transition: "slide", layout: "mobile-tabstrip", useNativeScrolling: true });
+		   var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "android-light", useNativeScrolling: true });
 	</script>
 </body>
 </html>

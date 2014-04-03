@@ -8,11 +8,19 @@
 </head>
 <body>
 	<div data-role="view" id="tab-quote" data-layout="mobile-tabstrip">
-	Quote View
+		<ul data-role="listview" data-style="inset" data-type="group">
+			<li>
+				Quote
+			</li>
+		</ul>
 	</div>
 
-	<div data-role="view" id="tab-fx" data-layout="mobile-tabstrip">
-	Buy/Sell View
+	<div data-role="view" id="tab-bs" data-layout="mobile-tabstrip">
+		<ul data-role="listview" data-style="inset" data-type="group">
+			<li>
+				Buy / Sell FX
+			</li>
+		</ul>
 	</div>
 
 	<div data-role="view" id="tab-tutorial" data-layout="mobile-tabstrip">
@@ -55,8 +63,8 @@
 	<div data-role="layout" data-id="mobile-tabstrip">
 		<div data-role="footer">
 			<div data-role="tabstrip">
-				<a href="http://eoe.instantec.com/fx/fxquote.aspx" data-icon="globe">Quote</a>
-				<a href="#tab-fx" data-icon="cart">Buy/Sell</a>
+				<a href="#tab-quote" data-icon="globe">Quote</a>
+				<a href="#tab-bs" data-icon="cart">Buy/Sell</a>
 				<a href="#tab-tutorial" data-icon="bookmarks">Tutorial</a>
 				<a href="#tab-settings" data-icon="more">Settings</a>
 			</div>

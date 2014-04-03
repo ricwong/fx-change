@@ -16,8 +16,5 @@ version = "1.1.0">
 
 <gap:plugin name="org.apache.cordova.camera"/>
 
-<gap:config-file platform="android" parent="/manifest">
-	<activity android:hardwareAccelerated="false" />
-</gap:config-file>
 
 </widget>

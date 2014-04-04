@@ -16,20 +16,20 @@
 
 	<div data-role="view" id="tab-quote" data-layout="mobile-tabstrip" 
 		data-before-show="showLoading" data-after-show="hideLoading">
-		<div data-role="navbar"><span data-bind="text: Quote" /></div>
+		<div data-role="navbar"><span data-bind="text: Quote"></span></div>
 		<ul data-role="listview" data-style="inset" data-type="group">
 		</ul>
 		<iframe src="http://eoe.instantec.com/fx/fxquote.aspx" width="100%" height="100%" frameborder="0" ></iframe>   
 	</div>
 
 	<div data-role="view" id="tab-bs" data-layout="mobile-tabstrip">
-		<div data-role="navbar"><span data-bind="text: BuySellFX" /></div>
+		<div data-role="navbar"><span data-bind="text: BuySellFX"></span></div>
 		<ul data-role="listview" data-style="inset" data-type="group">
 		</ul>
 	</div>
 
 	<div data-role="view" id="tab-tutorial" data-layout="mobile-tabstrip">
-		<div data-role="navbar"><span data-bind="text: FAQ" /></div>
+		<div data-role="navbar"><span data-bind="text: FAQ"></span></div>
 		<ul data-role="listview" data-style="inset" >
 			<li data-icon="toprated">How To Register As FX-Change.com Member?</li>
 			<li data-icon="toprated">How To Deposit Money To FX-Change.com?</li>
@@ -42,12 +42,12 @@
 	</div>
 
 	<div data-role="view" id="tab-settings" data-layout="mobile-tabstrip">
-		<div data-role="navbar"><span data-bind="text: Settings" /></div>
+		<div data-role="navbar"><span data-bind="text: Settings"></span></div>
 		<ul data-role="listview" data-style="inset" >
-			<li><span data-bind="text: AutoLogin"/><input id="autologin" type="checkbox" data-role="switch" data-bind="checked: localSetting.autoLogin"></li>
-			<li><span data-bind="text: Email"/><input type="email" data-bind="value: localSetting.email"/></li>
-			<li><span data-bind="text: Language"/>
-					<select id="selectlanguage" data-model="form_setting" data-bind="value: localSetting.language" onselect='javascript: alert(document.getElementById("selectlanguage").value;'>
+			<li><span data-bind="text: AutoLogin"></span><input id="autologin" type="checkbox" data-role="switch" data-bind="checked: localSetting.autoLogin"></li>
+			<li><span data-bind="text: Email"></span><input type="email" data-bind="value: localSetting.email"/></li>
+			<li><span data-bind="text: Language"></span>
+					<select id="selectlanguage" data-model="form_setting" data-bind="value: localSetting.language">
 						<option value="eng">English</option>
 						<option value="big5">繁體中文</option>
 						<option value="gb">简体中文</option>
@@ -77,12 +77,9 @@
 
 	<script>
 			// the content of the document.body is used by default
-			<!-- var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "android-light", useNativeScrolling: true }); -->
-			var app = new kendo.mobile.Application($(document.body), { transition: "slide", useNativeScrolling: true });
-						
+			// var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "android-light", useNativeScrolling: true }); 
+			var app = new kendo.mobile.Application($(document.body), { transition: "slide", useNativeScrolling: true });					
 			res.setLanguage("big5");
-
-			// kendo.bind($("#formSettings"), form_setting);
 			
 			function showLoading() {
 				app.pane.loader.show(); //show loading animation
@@ -91,16 +88,6 @@
 			function hideLoading() {
 				app.pane.loader.hide(); //hide loading animation
 			}
-			
-			function setLanguage(lang) {
-				if (lang == 'eng') {
-					kendo.bind(document.body, res_eng);
-				}
-				else
-				{
-					kendo.bind(document.body, res_big5);
-				}
-			}			
 	</script>
 </body>
 </html>

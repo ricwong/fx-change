@@ -32,5 +32,15 @@
 			this.AutoLogin = "自動登入";
 		}
 		kendo.bind(document.body, this);
+	},
+	
+	translateViewTitle : function(e)
+	{
+		e.view.options.title = this[e.view.options.title];
 	}
 };
+
+function translateViewTitle(e)
+{
+	res.translateViewTitle(e);
+}

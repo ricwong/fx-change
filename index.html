@@ -2,33 +2,49 @@
 <head>
     <title></title>
     <meta charset="utf-8">
-    <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.mobile.min.js"></script>
-    <script src="script/res.js"></script>
+    <script type="text/javascript" src="kendo/js/jquery.min.js"></script>
+    <script type="text/javascript" src="kendo/js/kendo.mobile.min.js"></script>
+    <script type="text/javascript" src="script/res.js"></script>
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
 </head>
 <body>
-	<script>
-			localStorage.language = "big5";
-			localStorage.email = "ric@abc.com";
-			localStorage.autoLogin = true;
+	<script type="text/javascript">
+	    var mobileSetting = kendo.observable(
+                {
+                    autoLogin: true
+				    , email: ""
+				    , language: "big5"
+                    , saveSetting: function () {
+                        localStorage.language = this.language;
+                        localStorage.email = this.email;
+                        localStorage.autoLogin = this.autoLogin ? "Y" : "N";
+                        alert(res.getMsg("SaveCompleted"));
+                        res.setLanguage(mobileSetting.language);
+                    }
+                    , loadSetting: function () {
+                        this.language = localStorage.language;
+                        this.email = localStorage.email;
+                        this.autoLogin = (localStorage.autoLogin == "Y") ? true : false;
+                    }
+
+                }
+            );
 	</script>
 
-	<div data-role="view" id="tab-quote" data-layout="mobile-tabstrip" data-title="Quote" data-init="translateViewTitle"
-		data-before-show="showLoading" data-after-show="hideLoading">
+	<div data-role="view" id="tab-quote" data-layout="mobile-tabstrip" data-res="Quote" data-init="translateViewTitle" data-before-show="showLoading" data-after-show="hideLoading">
 		<ul data-role="listview" data-style="inset" data-type="group">
 		</ul>
 		<iframe src="http://eoe.instantec.com/fx/fxquote.aspx" width="100%" height="100%" frameborder="0" ></iframe>   
 	</div>
 
-	<div data-role="view" id="tab-bs" data-layout="mobile-tabstrip" data-title="BuySellFX" data-init="translateViewTitle">
+	<div data-role="view" id="tab-bs" data-layout="mobile-tabstrip" data-res="BuySellFX" data-init="translateViewTitle">
 		<ul data-role="listview" data-style="inset" data-type="group">
 		</ul>
 	</div>
 
-	<div data-role="view" id="tab-tutorial" data-layout="mobile-tabstrip" data-title="FAQ" data-init="translateViewTitle">
+	<div data-role="view" id="tab-tutorial" data-layout="mobile-tabstrip" data-res="FAQ" data-init="translateViewTitle">
 		<ul data-role="listview" data-style="inset" >
-			<li data-icon="toprated">How To Register As FX-Change.com Member?</li>
+			<li data-icon="toprated"><a href="#view-faq">How To Register As FX-Change.com Member?</a></li>
 			<li data-icon="toprated">How To Deposit Money To FX-Change.com?</li>
 			<li data-icon="toprated">How To Buy / Sell Forex?</li>
 			<li data-icon="toprated">Why We Need Your ID Card Copy?</li>
@@ -38,19 +54,32 @@
 		</ul>
 	</div>
 
-	<div data-role="view" id="tab-settings" data-layout="mobile-tabstrip" data-title="Settings" data-init="translateViewTitle">
+	<div data-role="view" id="tab-settings" data-layout="mobile-tabstrip" data-res="Settings" data-init="translateViewTitle" data-model="mobileSetting">
 		<ul data-role="listview" data-style="inset" >
-			<li><span data-bind="text: AutoLogin"></span><input id="autologin" type="checkbox" data-role="switch" data-bind="checked: localSetting.autoLogin"></li>
-			<li><span data-bind="text: Email"></span><input type="email" data-bind="value: localSetting.email"/></li>
-			<li><span data-bind="text: Language"></span>
-					<select id="selectlanguage" data-model="form_setting" data-bind="value: localSetting.language">
+			<li><span data-res="AutoLogin"></span><input id="autologin" type="checkbox" data-role="switch" data-bind="checked: autoLogin"></li>
+			<li><span data-res="Email"></span><input type="email" data-bind="value: email"/></li>
+			<li><span data-res="Language"></span>
+					<select id="selectlanguage" data-bind="value: language">
 						<option value="eng">English</option>
 						<option value="big5">繁體中文</option>
 						<option value="gb">简体中文</option>
 					</select>
 			</li>
 		</ul>
+        <a class="button" data-role="button" data-bind="click: saveSetting"><span data-res="Save"/></a>
 	</div>
+
+    <div data-role="view" id="view-faq">
+        <header data-role="header">
+            <div data-role="navbar" id="view-faq-navbar">
+                <a data-role="backbutton" id="view-faq-back" data-align="left" data-bind="text: Back"></a>
+            </div>
+        </header>
+	    <ul data-role="listview" data-style="inset" >
+		    <li>Q: Test FAQ Question</li>
+		    <li>A: Test FAQ Answer</li>
+	    </ul>
+    </div>
 
 	<div data-role="layout" data-id="mobile-tabstrip">
 		<div data-role="header">
@@ -60,29 +89,30 @@
 		</div>
 
 		<div data-role="footer">
-			<div data-role="tabstrip">
-				<a href="#tab-quote" data-icon="globe" data-bind="text: Quote"></a>
-				<a href="#tab-bs" data-icon="cart" data-bind="text: BuySellFX"></a>
+			<div data-role="tabstrip" id="tab-strip">
+				<a href="#tab-quote" data-icon="globe"><span data-res="Quote"/></a>
+				<a href="#tab-bs" data-icon="cart"><span data-res="BuySellFX"/></a>
 				<!-- data-rel="external" -->
-				<a href="#tab-tutorial" data-icon="bookmarks" data-bind="text: FAQ"></a>
-				<a href="#tab-settings" data-icon="more" data-bind="text: Settings"></a>
+				<a href="#tab-tutorial" data-icon="bookmarks"><span data-res="FAQ"/></a>
+				<a href="#tab-settings" data-icon="more"><span data-res="Settings"/></a>
 			</div>
 		</div>
 	</div>
 
 	<script>
-			// the content of the document.body is used by default
-			// var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "android-light", useNativeScrolling: true }); 
-			var app = new kendo.mobile.Application($(document.body), { transition: "slide", useNativeScrolling: true });					
-			res.setLanguage("big5");
+		// the content of the document.body is used by default
+		// var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "android-light", useNativeScrolling: true });
+	    var app = new kendo.mobile.Application($(document.body), { transition: "slide", useNativeScrolling: true });
+	    mobileSetting.loadSetting();
+		res.setLanguage(mobileSetting.language);
 			
-			function showLoading() {
-				app.pane.loader.show(); //show loading animation
-			}
+		function showLoading(e) {
+			app.pane.loader.show(); //show loading animation
+		}
 
-			function hideLoading() {
-				app.pane.loader.hide(); //hide loading animation
-			}
+		function hideLoading(e) {
+			app.pane.loader.hide(); //hide loading animation				
+		}
 	</script>
 </body>
 </html>

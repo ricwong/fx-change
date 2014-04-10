@@ -31,6 +31,19 @@
             );
 	</script>
 
+    <style scoped>
+    .km-root .km-android .km-view
+    {
+     -webkit-box-direction: normal;
+     -webkit-flex-direction: column;
+    }
+ 
+    .km-android .km-view-title
+    {
+     visibility: visible;
+    }
+    </style>
+
 	<div data-role="view" id="tab-quote" data-layout="mobile-tabstrip" data-res="Quote" data-init="translateViewTitle" data-before-show="showLoading" data-after-show="hideLoading">
 		<ul data-role="listview" data-style="inset" data-type="group">
 		</ul>

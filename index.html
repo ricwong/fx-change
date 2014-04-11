@@ -76,7 +76,7 @@
 		</ul>
 	</div>
 
-    <div data-role="view" id="view-settings" data-model="mobileSetting" data-res="Settings" data-init="translateViewTitle" data-title="Test">
+    <div data-role="view" id="view-settings" data-model="mobileSetting" data-res="Settings" data-init="translateViewTitle">
 		<header data-role="header">
 			<div data-role="navbar">
                <a data-role="backbutton" data-align="left" data-bind="click: saveSetting"><span data-res="Save"/></a>
@@ -110,15 +110,6 @@
 	    </ul>
     </div>
 
-	<div data-role="layout" data-id="mobile-viewlayout">
-		<header data-role="header">
-			<div data-role="navbar">
-               <a data-role="backbutton" data-align="left"><span data-res="Back"/></a>
-			   <span data-role="view-title"/>
-			</div>
-		</header>
-	</div>
-
 	<div data-role="layout" data-id="mobile-tabstrip">
 		<header data-role="header">
 			<div data-role="navbar">
@@ -126,7 +117,7 @@
 			</div>
 		</header>
 
-		<div data-role="footer">
+		<footer data-role="footer">
 			<div data-role="tabstrip" id="tab-strip">
 				<a href="#tab-quote" data-icon="globe"><span data-res="Quote"/></a>
 				<a href="#tab-bs" data-icon="cart"><span data-res="BuySellFX"/></a>
@@ -134,13 +125,13 @@
 				<a href="#tab-tutorial" data-icon="bookmarks"><span data-res="FAQ"/></a>
 				<a href="#tab-more" data-icon="more"><span data-res="More"/></a>
 			</div>
-		</div>
+		</footer>
 	</div>
 
 	<script type="text/javascript">
 		// the content of the document.body is used by default
-		// var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "light", useNativeScrolling: true });
-	    var app = new kendo.mobile.Application($(document.body), { transition: "slide", useNativeScrolling: true });
+		// var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "android-light", useNativeScrolling: true });
+	    var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "ios7", useNativeScrolling: true });
 	    mobileSetting.loadSetting();
 		res.setLanguage(mobileSetting.language);
 			

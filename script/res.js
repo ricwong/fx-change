@@ -6,6 +6,7 @@
         Email: "Email",
         FAQ: "Tutorial And FAQ",
         Language: "Language",
+        More: "More",
         Quote: "FX Quote",
         Save: "Save",
         SaveCompleted: "Save Completed",
@@ -19,6 +20,7 @@
         Email: "電郵",
         FAQ: "常見問題",
         Language: "語言",
+        More: "更多",
         Quote: "外幣報價",
         Save: "儲存",
         SaveCompleted: "儲存完成",
@@ -28,7 +30,9 @@
     currentLang: "big5",
 
     getMsg: function (a_res_key) {
-        return this[this.currentLang][a_res_key];
+        var msg = this[this.currentLang][a_res_key];
+        if (msg == undefined) return "[" + a_res_key + "]";
+        return msg;
     },
 
     setLanguage: function (a_lang) {
@@ -56,13 +60,15 @@
         //alert($(view_id).data("res"));
         var view;
         view = $("#tab-quote").data("kendoMobileView");
-        if (view != undefined) view.options.title = this[this.currentLang][$("#tab-quote").data("res")];
+        if (view != undefined) view.options.title = this.getMsg($("#tab-quote").data("res"));
         view = $("#tab-bs").data("kendoMobileView");
-        if (view != undefined) view.options.title = this[this.currentLang][$("#tab-bs").data("res")];
+        if (view != undefined) view.options.title = this.getMsg($("#tab-bs").data("res"));
         view = $("#tab-tutorial").data("kendoMobileView");
-        if (view != undefined) view.options.title = this[this.currentLang][$("#tab-tutorial").data("res")];
-        view = $("#tab-settings").data("kendoMobileView");
-        if (view != undefined) view.options.title = this[this.currentLang][$("#tab-settings").data("res")];
+        if (view != undefined) view.options.title = this.getMsg($("#tab-tutorial").data("res"));
+        view = $("#tab-more").data("kendoMobileView");
+        if (view != undefined) view.options.title = this.getMsg($("#tab-more").data("res"));
+        view = $("#view-settings").data("kendoMobileView");
+        if (view != undefined) view.options.title = this.getMsg($("#view-settings").data("res"));
     },
 
     applyToHtml: function () {
@@ -72,6 +78,7 @@
             value = _ref[key];
             $("span[data-res='" + key + "']").html(value);
         }
+        this.translateViewTitle(null);
     }
 };
 

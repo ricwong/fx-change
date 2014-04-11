@@ -3,9 +3,25 @@
     <title></title>
     <meta charset="utf-8">
     <script type="text/javascript" src="kendo/js/jquery.min.js"></script>
-    <script type="text/javascript" src="kendo/js/kendo.mobile.min.js"></script>
+    <script type="text/javascript" src="kendo/js/kendo.all.min.js"></script>
+    <!-- <script type="text/javascript" src="kendo/js/kendo.mobile.min.js"></script> -->
     <script type="text/javascript" src="script/res.js"></script>
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet" />
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+
+    <style scoped>
+    .km-root .km-android .km-view
+    {
+     -webkit-box-direction: normal;
+     -webkit-flex-direction: column;
+    }
+    
+    .km-android .km-view-title
+    {
+     visibility: visible;
+    }    
+    </style>
 </head>
 <body>
 	<script type="text/javascript">
@@ -18,7 +34,7 @@
                         localStorage.language = this.language;
                         localStorage.email = this.email;
                         localStorage.autoLogin = this.autoLogin ? "Y" : "N";
-                        alert(res.getMsg("SaveCompleted"));
+                        // alert(res.getMsg("SaveCompleted"));
                         res.setLanguage(mobileSetting.language);
                     }
                     , loadSetting: function () {
@@ -30,19 +46,6 @@
                 }
             );
 	</script>
-
-    <style scoped>
-    .km-root .km-android .km-view
-    {
-     -webkit-box-direction: normal;
-     -webkit-flex-direction: column;
-    }
- 
-    .km-android .km-view-title
-    {
-     visibility: visible;
-    }
-    </style>
 
 	<div data-role="view" id="tab-quote" data-layout="mobile-tabstrip" data-res="Quote" data-init="translateViewTitle" data-before-show="showLoading" data-after-show="hideLoading">
 		<ul data-role="listview" data-style="inset" data-type="group">
@@ -67,7 +70,20 @@
 		</ul>
 	</div>
 
-	<div data-role="view" id="tab-settings" data-layout="mobile-tabstrip" data-res="Settings" data-init="translateViewTitle" data-model="mobileSetting">
+	<div data-role="view" id="tab-more" data-layout="mobile-tabstrip" data-res="More" data-init="translateViewTitle">
+		<ul data-role="listview" data-style="inset" >
+			<li data-icon="settings"><a href="#view-settings"><span data-res="Settings" /></a></li>
+		</ul>
+	</div>
+
+    <div data-role="view" id="view-settings" data-model="mobileSetting" data-res="Settings" data-init="translateViewTitle" data-title="Test">
+		<header data-role="header">
+			<div data-role="navbar">
+               <a data-role="backbutton" data-align="left" data-bind="click: saveSetting"><span data-res="Save"/></a>
+			   <span data-role="view-title"/>
+			</div>
+		</header>
+
 		<ul data-role="listview" data-style="inset" >
 			<li><span data-res="AutoLogin"></span><input id="autologin" type="checkbox" data-role="switch" data-bind="checked: autoLogin"></li>
 			<li><span data-res="Email"></span><input type="email" data-bind="value: email"/></li>
@@ -79,8 +95,8 @@
 					</select>
 			</li>
 		</ul>
-        <a class="button" data-role="button" data-bind="click: saveSetting"><span data-res="Save"/></a>
-	</div>
+        <!-- <a class="button" data-role="button" data-bind="click: saveSetting"><span data-res="Save"/></a> -->
+    </div>
 
     <div data-role="view" id="view-faq">
         <header data-role="header">
@@ -94,12 +110,21 @@
 	    </ul>
     </div>
 
+	<div data-role="layout" data-id="mobile-viewlayout">
+		<header data-role="header">
+			<div data-role="navbar">
+               <a data-role="backbutton" data-align="left"><span data-res="Back"/></a>
+			   <span data-role="view-title"/>
+			</div>
+		</header>
+	</div>
+
 	<div data-role="layout" data-id="mobile-tabstrip">
-		<div data-role="header">
+		<header data-role="header">
 			<div data-role="navbar">
 			   <span data-role="view-title"/>
 			</div>
-		</div>
+		</header>
 
 		<div data-role="footer">
 			<div data-role="tabstrip" id="tab-strip">
@@ -107,14 +132,14 @@
 				<a href="#tab-bs" data-icon="cart"><span data-res="BuySellFX"/></a>
 				<!-- data-rel="external" -->
 				<a href="#tab-tutorial" data-icon="bookmarks"><span data-res="FAQ"/></a>
-				<a href="#tab-settings" data-icon="more"><span data-res="Settings"/></a>
+				<a href="#tab-more" data-icon="more"><span data-res="More"/></a>
 			</div>
 		</div>
 	</div>
 
-	<script>
+	<script type="text/javascript">
 		// the content of the document.body is used by default
-		// var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "android-light", useNativeScrolling: true });
+		// var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "light", useNativeScrolling: true });
 	    var app = new kendo.mobile.Application($(document.body), { transition: "slide", useNativeScrolling: true });
 	    mobileSetting.loadSetting();
 		res.setLanguage(mobileSetting.language);

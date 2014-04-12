@@ -48,77 +48,74 @@
 	</script>
 
 	<div data-role="view" id="tab-quote" data-layout="mobile-tabstrip" data-res="Quote" data-init="translateViewTitle" data-before-show="showLoading" data-after-show="hideLoading">
-		<ul data-role="listview" data-style="inset" data-type="group">
-		</ul>
-		<iframe src="http://eoe.instantec.com/fx/fxquote.aspx" width="100%" height="100%" frameborder="0" ></iframe>   
+		<iframe src="http://eoe.instantec.com/fx/fxquote.aspx" width="100%" height="100%" frameborder="0" ></iframe>
 	</div>
 
 	<div data-role="view" id="tab-bs" data-layout="mobile-tabstrip" data-res="BuySellFX" data-init="translateViewTitle">
-		<ul data-role="listview" data-style="inset" data-type="group">
-		</ul>
 	</div>
 
 	<div data-role="view" id="tab-tutorial" data-layout="mobile-tabstrip" data-res="FAQ" data-init="translateViewTitle">
 		<ul data-role="listview" data-style="inset" >
-			<li data-icon="toprated"><a href="#view-faq">How To Register As FX-Change.com Member?</a></li>
-			<li data-icon="toprated">How To Deposit Money To FX-Change.com?</li>
-			<li data-icon="toprated">How To Buy / Sell Forex?</li>
-			<li data-icon="toprated">Why We Need Your ID Card Copy?</li>
-			<li data-icon="toprated">Why We Need Your Bank Account No.?</li>
-			<li data-icon="toprated">Is FX-Change.com Licensed Money Service Operator?</li>
-			<li data-icon="toprated">Why Should I Trust FX-Change.com?</li>
+			        <li data-icon="toprated"><a href="#view-faq">How To Register As FX-Change.com Member?</a></li>
+			        <li data-icon="toprated">How To Deposit Money To FX-Change.com?</li>
+			        <li data-icon="toprated">How To Buy / Sell Forex?</li>
+			        <li data-icon="toprated">Why We Need Your ID Card Copy?</li>
+			        <li data-icon="toprated">Why We Need Your Bank Account No.?</li>
+			        <li data-icon="toprated">Is FX-Change.com Licensed Money Service Operator?</li>
+			        <li data-icon="toprated">Why Should I Trust FX-Change.com?</li>
 		</ul>
 	</div>
 
 	<div data-role="view" id="tab-more" data-layout="mobile-tabstrip" data-res="More" data-init="translateViewTitle">
 		<ul data-role="listview" data-style="inset" >
-			<li data-icon="settings"><a href="#view-settings"><span data-res="Settings" /></a></li>
+			        <li data-icon="settings"><a href="#view-settings"><span data-res="Settings" /></a></li>
 		</ul>
 	</div>
 
     <div data-role="view" id="view-settings" data-model="mobileSetting" data-res="Settings" data-init="translateViewTitle">
-		<header data-role="header">
-			<div data-role="navbar">
-               <a data-role="backbutton" data-align="left" data-bind="click: saveSetting"><span data-res="Save"/></a>
-			   <span data-role="view-title"/>
+		<ul data-role="listview" data-type="group" data-style="inset" data-fixed-headers="true">
+        <li><div data-role="navbar">
+                <a data-role="backbutton" data-align="left" data-bind="click: saveSetting"><span data-res="Save"/></a>
+                <span data-role="view-title"/>
 			</div>
-		</header>
-
-		<ul data-role="listview" data-style="inset" >
-			<li><span data-res="AutoLogin"></span><input id="autologin" type="checkbox" data-role="switch" data-bind="checked: autoLogin"></li>
-			<li><span data-res="Email"></span><input type="email" data-bind="value: email"/></li>
-			<li><span data-res="Language"></span>
-					<select id="selectlanguage" data-bind="value: language">
-						<option value="eng">English</option>
-						<option value="big5">繁體中文</option>
-						<option value="gb">简体中文</option>
-					</select>
-			</li>
+            <ul>
+			    <li><span data-res="AutoLogin"></span><input id="autologin" type="checkbox" data-role="switch" data-bind="checked: autoLogin"></li>
+			    <li><span data-res="Email"></span><input type="email" data-bind="value: email"/></li>
+			    <li><span data-res="Language"></span>
+					    <select id="selectlanguage" data-bind="value: language">
+						    <option value="eng">English</option>
+						    <option value="big5">繁體中文</option>
+						    <option value="gb">简体中文</option>
+					    </select>
+			    </li>
+            </ul>
+        </li>
 		</ul>
-        <!-- <a class="button" data-role="button" data-bind="click: saveSetting"><span data-res="Save"/></a> -->
     </div>
 
-    <div data-role="view" id="view-faq">
-        <header data-role="header">
-            <div data-role="navbar" id="view-faq-navbar">
-                <a data-role="backbutton" id="view-faq-back" data-align="left" data-bind="text: Back"></a>
-            </div>
-        </header>
-	    <ul data-role="listview" data-style="inset" >
-		    <li>Q: Test FAQ Question</li>
-		    <li>A: Test FAQ Answer</li>
+    <div data-role="view" id="view-faq" data-title="FAQ" >
+	    <ul data-role="listview" data-type="group" data-style="inset">
+            <li>
+                <div data-role="navbar">
+                    <a data-role="backbutton" data-align="left"><span data-res="Back"/></a>
+                    <span data-role="view-title"/>
+                </div>
+                <ul>
+		            <li>Q: Test FAQ Question</li>
+		            <li>A: Test FAQ Answer</li>
+                </ul>
+            </li>
 	    </ul>
     </div>
 
-	<div data-role="layout" data-id="mobile-tabstrip">
+	<div data-role="layout" data-id="mobile-tabstrip" data-platform="ios">
 		<header data-role="header">
 			<div data-role="navbar">
 			   <span data-role="view-title"/>
 			</div>
 		</header>
-
 		<footer data-role="footer">
-			<div data-role="tabstrip" id="tab-strip">
+			<div data-role="tabstrip">
 				<a href="#tab-quote" data-icon="globe"><span data-res="Quote"/></a>
 				<a href="#tab-bs" data-icon="cart"><span data-res="BuySellFX"/></a>
 				<!-- data-rel="external" -->
@@ -128,10 +125,27 @@
 		</footer>
 	</div>
 
+	<div data-role="layout" data-id="mobile-tabstrip" data-platform="android">
+		<header data-role="header">
+			<div data-role="tabstrip">
+				<a href="#tab-quote" data-icon="globe"><span data-res="Quote"/></a>
+				<a href="#tab-bs" data-icon="cart"><span data-res="BuySellFX"/></a>
+				<!-- data-rel="external" -->
+				<a href="#tab-tutorial" data-icon="bookmarks"><span data-res="FAQ"/></a>
+				<a href="#tab-more" data-icon="more"><span data-res="More"/></a>
+			</div>
+		</header>
+		<footer data-role="footer">
+			<div data-role="navbar">
+			   <span data-role="view-title"/>
+			</div>
+		</footer>
+	</div>
+
 	<script type="text/javascript">
 		// the content of the document.body is used by default
-		// var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "android-light", useNativeScrolling: true });
-	    var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "ios7", useNativeScrolling: true });
+		//var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "android-light", useNativeScrolling: true });
+	    var app = new kendo.mobile.Application($(document.body), { transition: "slide", platform : "android", useNativeScrolling: true });
 	    mobileSetting.loadSetting();
 		res.setLanguage(mobileSetting.language);
 			

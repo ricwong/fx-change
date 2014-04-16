@@ -144,9 +144,14 @@
 
 	<script type="text/javascript">
 		// the content of the document.body is used by default
-		//var app = new kendo.mobile.Application($(document.body), { transition: "slide", skin: "android-light", useNativeScrolling: true });
-	    var app = new kendo.mobile.Application($(document.body), { transition: "slide", platform : "android", useNativeScrolling: true });
-	    mobileSetting.loadSetting();
+	    var app = new kendo.mobile.Application($(document.body), { transition: "slide", platform: "android", useNativeScrolling: true });
+	    // var app = new kendo.mobile.Application($(document.body), { transition: "slide", platform: "android", skin: "android-light", useNativeScrolling: true });
+	    // var app = new kendo.mobile.Application($(document.body), { transition: "slide", useNativeScrolling: true });
+	    $(function () {
+            if (app.os.android) app.skin("android-light");
+	    });
+        
+        mobileSetting.loadSetting();
 		res.setLanguage(mobileSetting.language);
 			
 		function showLoading(e) {

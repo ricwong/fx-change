@@ -9,7 +9,7 @@ version = "1.1.0">
 
 <name>FX-Change.com</name>
 <description>Buy/Sell FX Online</description>
-<author href="http://www.fx-change.com" email="it@fx-change.com">FX-Change.com</author>
+<author href="http://www.fx-change.com" email="cs@fx-change.com">FX-Change.com</author>
 
 <gap:platform name="ios" />
 <gap:platform name="android" />

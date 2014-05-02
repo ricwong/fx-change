@@ -1,0 +1,5 @@
+<div data-options="dxView : { name: 'Quote_bank', title: 'quote-bank' } " >
+    <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
+        bank
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<div data-options="dxView : { name: 'user_registration', title: '@UserRegistration' } " >
+    <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
+    Under Construction
+    </div>
+</div>

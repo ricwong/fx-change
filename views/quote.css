@@ -1,0 +1,96 @@
+﻿#quote_content div
+{
+    font-size: small;
+}
+
+.list_content
+{
+   	float: right;
+}
+
+.title 
+{
+   	float: left;
+}
+
+.bid {
+    width: 60px;
+    color: Green;
+}
+
+.ask {
+    width: 60px;
+    color: Red;
+}
+
+.time 
+{    
+    width: 55px;
+    color: blue;
+}
+
+.list_head
+{
+    color: Purple;
+    text-decoration: underline;
+}
+
+.select_title
+{
+	display: inline-block;
+}
+
+.select_quote_type
+{
+	display: inline-block;
+}
+
+.allheader_below
+{
+    position: absolute;
+    bottom: 0;
+    top: 140px;
+    width: 100%;
+    height: auto;
+}
+
+.dx-theme-ios .allheader_below
+{
+    position: absolute;
+    bottom: 0;
+    top: 105px;
+    width: 100%;
+    height: auto;
+}
+
+.dx-theme-android .allheader_below
+{
+    position: absolute;
+    bottom: 0;
+    top: 140px;
+    width: 100%;
+    height: auto;
+}
+
+.dx-theme-win8 .allheader_below
+{
+    position: absolute;
+    bottom: 0;
+    top: 120px;
+    width: 100%;
+    height: auto;
+}
+
+.dx-theme-desktop .allheader_below
+{
+    position: inherit;
+    bottom: inherit;
+    top: inherit;
+    width: inherit;
+    height: inherit;
+}
+
+.dx-theme-android .dx-list .dx-list-item
+{
+    padding: 0.5em 10px;
+}

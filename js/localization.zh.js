@@ -1,0 +1,35 @@
+﻿Globalize.addCultureInfo("zh",
+{
+    messages:
+        {
+            "AboutUs": "關於我們"
+            , "FXQuote": "外幣報價"
+            , "Shop" : "兌換商"
+            , "Currency" : "貨幣"
+            , "TT": "電匯價"
+            , "Cash": "現鈔價"
+            , "Bid": "買入價"
+            , "Ask": "賣出價"
+            , "UpdTime": "更新時間"
+            , "UserRegistration": "用戶登記"
+            , "Err.Connect": "無法連接伺服器"
+            , "dxList-noDataText": "沒有資料顯示"
+            , "CCY_AUD": "AUD/澳元"
+            , "CCY_CAD": "CAD/加元"
+            , "CCY_CHF": "CHF/瑞士法郎"
+            , "CCY_CNY": "CNY/人民幣"          
+            , "CCY_DKK": "DKK/丹麥克郎"
+            , "CCY_EUR": "EUR/歐元"
+            , "CCY_GBP": "GBP/英鎊"
+            , "CCY_JPY": "JPY/日圓"
+            , "CCY_NOK": "NOK/挪威克朗"
+            , "CCY_NZD": "NZD/紐元"
+            , "CCY_SEK": "SEK/瑞典克朗"
+            , "CCY_SGD": "SGD/新加坡元"
+            , "CCY_USD": "USD/美元"
+            , "SHOP_FX0": "快匯通(成本)"
+            , "SHOP_FX1": "快匯通(客戶)"
+            , "SHOP_FXC": "快匯通"
+            , "SHOP_HSBC": "匯豐銀行"            
+        }
+});

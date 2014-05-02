@@ -1,0 +1,12 @@
+<div data-options="dxView : { name: 'quote_bank', title: 'quote_bank' } " >
+        <div data-bind="dxSelectBox: { width: 'auto', dataSource: banks, displayExpr: 'name', value: 'FXC', valueExpr: 'id' }">
+        </div>
+        <div data-bind="dxRadioGroup: { items: [{ text:'@TT', value:'TT'},{ text:'@Note', value: 'Note'}], selectedIndex: 0, layout: 'horizontal' }">
+        </div>
+        Bank 1<br />
+        Bank 2<br />
+        Bank 3<br />
+        Bank 4<br />
+        Bank 5<br />
+        Bank 6<br />
+</div>

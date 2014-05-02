@@ -1,0 +1,5 @@
+<div data-options="dxView : { name: 'Quote_ccy', title: 'quote-ccy' } " >
+    <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
+        Currency
+    </div>
+</div>

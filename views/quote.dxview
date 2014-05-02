@@ -1,0 +1,64 @@
+<div data-options="dxView : { name: 'quote', title: '@FXQuote' } " >
+    <div data-bind="dxCommand: { id: 'save', action: tabsItemClicked, icon: 'refresh' } "></div>
+    <div id="quote_content" data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div data-bind="dxTabs: { 
+            items: [{ text: '@Shop', icon: 'home'}, { text: '@Currency', icon: 'money'} ] 
+            , selectedIndex : selectedTab
+            , itemClickAction : tabsItemClicked
+            }">
+        </div>
+        <!-- ko if: selectedTab() == 0 -->
+        <!--
+        <div class="select_quote_type" data-bind="dxRadioGroup: { items: quoteTypes, selectedIndex: selectedShopQuoteType, layout: 'horizontal', itemSelectAction: loadShopQuotes}">
+        </div>
+        -->
+        <div class="select_quote_type" data-bind="dxSelectBox: { width: '100px', dataSource: quoteTypes, displayExpr: 'text', value: selectedShopQuoteType, valueChangeAction: loadShopQuotes, valueExpr: 'value' }">
+        </div>
+        <div class="select_title" data-bind="dxSelectBox: { width: '200px', dataSource: shops, displayExpr: 'name', valueExpr: 'id', value: selectedShop, valueChangeAction: loadShopQuotes }">
+        </div>
+        <!-- /ko -->
+        <!-- ko if: selectedTab() == 1 -->
+        <!--
+        <div class="select_quote_type" data-bind="dxRadioGroup: { items: quoteTypes, selectedIndex: selectedCcyQuoteType, layout: 'horizontal', itemSelectAction: loadCcyQuotes}">
+        </div>
+        -->
+        <div class="select_quote_type" data-bind="dxSelectBox: { width: '100px', dataSource: quoteTypes, displayExpr: 'text', value: selectedCcyQuoteType, valueChangeAction: loadCcyQuotes, valueExpr: 'value' }">
+        </div>
+        <div class="select_title" data-bind="dxSelectBox: { width: '200px', dataSource: ccys, displayExpr: 'name', valueExpr: 'id', value: selectedCcy, valueChangeAction: loadCcyQuotes }">
+        </div>
+        <!-- /ko -->
+        <div data-bind="dxList: { dataSource: datasource_header(), scrollingEnabled: false }">
+            <div data-options="dxTemplate : { name: 'item' } ">
+                <div data-bind="text: title" class="list_content title list_head"></div>
+                <div data-bind="text: time" class="list_content time list_head"></div>
+                <div data-bind="text: ask" class="list_content ask list_head"></div>
+                <div data-bind="text: bid" class="list_content bid list_head"></div>
+            </div>
+        </div>
+
+        <!-- ko if: selectedTab() == 0 -->
+        <div class="allheader_below">
+                <div data-bind="dxList: { dataSource: dataSourceShopQuotes, noDataText: Globalize.localize('dxList-noDataText'), pageLoadingText: Globalize.localize('dxList-pageLoadingText') }">
+                    <div data-options="dxTemplate : { name: 'item' } ">
+                        <div data-bind="text: title" class="list_content title"></div>
+                        <div data-bind="text: time" class="list_content time"></div>
+                        <div data-bind="text: ask" class="list_content ask"></div>
+                        <div data-bind="text: bid" class="list_content bid"></div>
+                    </div>
+                </div>
+        </div>
+       <!-- /ko -->
+       <!-- ko if: selectedTab() == 1 -->
+        <div class="allheader_below">
+                <div data-bind="dxList: { dataSource: dataSourceCcyQuotes, noDataText: Globalize.localize('dxList-noDataText'), pageLoadingText: Globalize.localize('dxList-pageLoadingText') }">
+                    <div data-options="dxTemplate : { name: 'item' } ">
+                        <div data-bind="text: title" class="list_content title"></div>
+                        <div data-bind="text: time" class="list_content time"></div>
+                        <div data-bind="text: ask" class="list_content ask"></div>
+                        <div data-bind="text: bid" class="list_content bid"></div>
+                    </div>
+                </div>
+        </div>
+       <!-- /ko -->
+    </div>
+</div>
